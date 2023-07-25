@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,jsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        reddit_dark: {
+          DEFAULT: '#030303'
+        }
+      }
+    },
   },
   plugins: [],
 }
