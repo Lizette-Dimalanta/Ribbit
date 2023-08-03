@@ -4,12 +4,12 @@ const BoardHeader = () => {
   return (
     <>
         <div>
-            <img src="public/cover-photo.jpeg" alt="" className="bg-cover" />
+            <img src="/cover-photo.jpeg" alt="" className="bg-cover" />
         </div>
         <div className="bg-reddit_dark-brighter">
         <div className="mx-6 relative flex">
             <div className="h-20 w-20 overflow-hidden relative -top-3">
-            <img src="public/frog-icon.jpeg" alt="" className="rounded-full" />
+            <img src="/frog-icon.jpeg" alt="" className="rounded-full" />
             </div>
             <div className="pt-2 pl-4">
             <h1 className="text-gray-300 text-3xl">
