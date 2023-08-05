@@ -3,6 +3,7 @@ import Logo from '../images/reddit-logo.png'
 import { BsSearch, BsChatDots, BsBell, BsChevronDown } from 'react-icons/bs'
 import { AiOutlinePlus } from "react-icons/ai"
 import Avatar from '../images/Avatar.png'
+import Button from './Button'
 
 const Header = () => {
   return (
@@ -13,7 +14,7 @@ const Header = () => {
                 <BsSearch className="text-gray-500 h-5 w-5 pl-1 flex self-center"/>
                 <input type="text" className="bg-reddit_dark-brighter h-6 text-sm pl-3 text-white focus:outline-none flex self-center" placeholder="Search"/>
             </form>
-            <button className="px-2 py-1">
+            {/* <button className="px-2 py-1">
                 <BsChatDots className="text-gray-400 w-6 h-6 mx-2" />
             </button>
             <button className="px-2 py-1">
@@ -21,7 +22,12 @@ const Header = () => {
             </button>
             <button className="px-2 py-1">
                 <AiOutlinePlus className="text-gray-400 w-8 h-8 mx-1" />
-            </button>
+            </button> */}
+
+            <div className="mx-2">
+                <Button outline={true} className="mr-1">Log In</Button>
+                <Button outline={false} className="">Sign Up</Button>
+            </div>
         
             <button className="rounded-md flex self-center ml-5">
                 <div className="w-8 h-8">
