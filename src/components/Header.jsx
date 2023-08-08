@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect, useRef } from 'react'
 import Logo from '../images/reddit-logo.png'
 import { BsSearch, BsChatDots, BsBell, BsChevronDown } from 'react-icons/bs'
 import { AiOutlinePlus } from "react-icons/ai"
@@ -8,6 +8,22 @@ import { CiUser, CiLogin } from "react-icons/ci"
 
 const Header = () => {
   const [userDropdownVisibilityClass, setuserDropdownVisibilityClass] = useState("hidden")
+  function useUserDropdown(ref) {
+    useEffect(() => {
+        function handleClickOutside(event) {
+            if(ref.current && !ref.current.contains(event.target)) {
+                userUserDropdownVisibilityClass("hidden")
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside)
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside)
+        }
+    }, [ref])
+  }
+  const userDropdownRef = useRef(null)
+  useUserDropdown(userDropdownRef)
+
   function toggleUserDropdown() {
     if (userDropdownVisibilityClass === "hidden") {
         setuserDropdownVisibilityClass("block")
@@ -39,7 +55,7 @@ const Header = () => {
                 <Button outline={false} className="">Sign Up</Button>
             </div>
         
-            <button className="rounded-md flex self-center ml-5 border border-gray-500" onClick={toggleUserDropdown}>
+            <button className="rounded-md flex self-center ml-5 border border-gray-500" onClick={() => toggleUserDropdown()} ref={userDropdownRef}>
                 <CiUser className="w-6 h-6 text-gray-400 m-1" />
                 {/* <div className="w-8 h-8"> */}
                     {/* <img src={Avatar} alt="" className="w-8 h-8 block rounded-md" /> */}
