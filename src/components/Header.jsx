@@ -7,23 +7,28 @@ import Button from './Button'
 import { CiUser, CiLogin } from "react-icons/ci"
 
 const Header = () => {
-  const [userDropdownVisibilityClass, setuserDropdownVisibilityClass] = useState("hidden")
+  // Manages the visibility state of user dropdown
+  const [userDropdownVisibilityClass, setuserDropdownVisibilityClass] = useState("hidden") // In hidden initial state
+  // Handles clicks outside user dropdown to close
   function useUserDropdown(ref) {
     useEffect(() => {
         function handleClickOutside(event) {
             if(ref.current && !ref.current.contains(event.target)) {
-                userUserDropdownVisibilityClass("hidden")
+                setuserDropdownVisibilityClass("hidden");
             }
         }
-        document.addEventListener("mousedown", handleClickOutside)
+        document.addEventListener("mousedown", handleClickOutside);
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside)
-        }
-    }, [ref])
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [ref]);
   }
+
+  // Detect clicks outside user dropdown
   const userDropdownRef = useRef(null)
   useUserDropdown(userDropdownRef)
 
+  // Handles visibility state of the user dropdown
   function toggleUserDropdown() {
     if (userDropdownVisibilityClass === "hidden") {
         setuserDropdownVisibilityClass("block")
