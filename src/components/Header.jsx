@@ -55,7 +55,7 @@ const Header = () => {
                 <AiOutlinePlus className="text-gray-400 w-8 h-8 mx-1" />
             </button> */}
 
-            <div className="mx-2">
+            <div className="mx-2 hidden sm:block">
                 <Button outline={true} className="mr-1">Log In</Button>
                 <Button outline={false} className="">Sign Up</Button>
             </div>
