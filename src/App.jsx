@@ -4,6 +4,7 @@ import Header from './components/Header'
 import BoardHeader from './components/BoardHeader'
 import Avatar from './images/Avatar.png'
 import NewPost from './components/NewPost'
+import AuthModal from './components/AuthModal'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,6 +12,7 @@ function App() {
   return (
     <>
       <Header />
+      <AuthModal />
       <BoardHeader />
       <NewPost />
 
