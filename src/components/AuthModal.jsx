@@ -1,7 +1,7 @@
 import { React, useState } from 'react'
 import Input from './Input'
 import Button from './Button'
-// import axios from 'axios'
+import axios from 'axios'
 
 const AuthModal = () => {
   const [modalType, setModalType] = useState("login")
@@ -11,11 +11,13 @@ const AuthModal = () => {
 
   function register(){
     e.preventDefault()
-    axios.post()
+    const data = {email, username, password}
+    axios.post("http://localhost:4000/register", data, { withCredentials: true })
+      .then()
   }
 
   return (
-    <div className="w-screen h-screen fixed top-0 left-0 z-20 flex" style={{backgroundColor:'rgba(0,0,0,.6)'}}>
+    <div className="w-screen h-screen fixed top-0 left-0 z-20 flex" style={{ backgroundColor:'rgba(0,0,0,.6)' }}>
       <div className="w-3/4 sm:w-1/2 md:w-1/4 border border-reddit_dark-brightest bg-reddit_dark p-5 text-reddit_text self-center mx-auto rounded-md">
         {modalType === "login" && (
           <h1 className="text-2xl mb-5">
