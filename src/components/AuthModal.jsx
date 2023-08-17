@@ -9,11 +9,15 @@ const AuthModal = () => {
   const [username, setUsername ] = useState("")
   const [password, setPassword ] = useState("")
 
-  function register(){
+  function register(e){
     e.preventDefault()
     const data = {email, username, password}
     axios.post("http://localhost:4000/register", data, { withCredentials: true })
-      .then()
+      .then(response => {
+        console.log("successful")
+      }).catch(error => {
+        console.error("Axios error:", error)
+      })
   }
 
   return (

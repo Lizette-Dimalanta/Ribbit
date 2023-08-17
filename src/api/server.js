@@ -5,7 +5,7 @@ import mongoose from 'mongoose'
 import cors from 'cors'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import User from './models/User.jsx'
+import User from './models/User.js'
 // import dotenv from 'dotenv'
 
 // dotenv.config()
@@ -14,10 +14,11 @@ mongoose.connect('mongodb+srv://dbUser1:jVlPnrOeMRQBM9rd@cluster0.temziy2.mongod
   .catch((err) => console.log(err))
 
 const app = express()
-app.use(bodyParser.urlencoded({ extended:true }))
 app.use(cookieParser())
+app.use(bodyParser.urlencoded({ extended:true }))
+app.use(bodyParser.json())
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:5173',
     credentials: true
 }))
 
@@ -30,6 +31,7 @@ app.get('/', (req, res) => {
 
 app.post('/register', (req, res) => {
     const {email,username} = req.body
+    console.log(req.body)
     const password = bcrypt.hashSync(req.body.password, 10)
     const user = new User({email,username,password})
     user.save().then(() => {
