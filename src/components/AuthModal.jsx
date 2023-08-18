@@ -3,11 +3,13 @@ import Input from './Input'
 import Button from './Button'
 import axios from 'axios'
 
-const AuthModal = () => {
+const AuthModal = (props) => {
   const [modalType, setModalType] = useState("login")
   const [email, setEmail ] = useState("")
   const [username, setUsername ] = useState("")
   const [password, setPassword ] = useState("")
+
+  const visibilityClass = props.show ? "block" : "hidden"
 
   function register(e){
     e.preventDefault()
@@ -21,7 +23,7 @@ const AuthModal = () => {
   }
 
   return (
-    <div className="w-screen h-screen fixed top-0 left-0 z-20 flex" style={{ backgroundColor:'rgba(0,0,0,.6)' }}>
+    <div className={"w-screen h-screen fixed top-0 left-0 z-20 flex " + visibilityClass} style={{ backgroundColor:'rgba(0,0,0,.6)' }}>
       <div className="w-3/4 sm:w-1/2 md:w-1/4 border border-reddit_dark-brightest bg-reddit_dark p-5 text-reddit_text self-center mx-auto rounded-md">
         {modalType === "login" && (
           <h1 className="text-2xl mb-5">

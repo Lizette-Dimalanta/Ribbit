@@ -13,6 +13,7 @@ mongoose.connect('mongodb+srv://dbUser1:jVlPnrOeMRQBM9rd@cluster0.temziy2.mongod
   .then((m) => console.log(m.connection.readyState === 1 ? 'Mongoose connected!' : 'Mongoose failed to connect')) // Check connection
   .catch((err) => console.log(err))
 
+const secret = 'secret123'
 const app = express()
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended:true }))
@@ -31,11 +32,18 @@ app.get('/', (req, res) => {
 
 app.post('/register', (req, res) => {
     const {email,username} = req.body
-    console.log(req.body)
     const password = bcrypt.hashSync(req.body.password, 10)
     const user = new User({email,username,password})
-    user.save().then(() => {
-        res.sendStatus(201)
+    user.save().then(user => {
+        jwt.sign({ id: user._id }, secret, (err, token) => {
+            if (err) {
+                console.log(err);
+                res.sendStatus(500);
+            } else {
+                res.cookie('token', token).status(201).json({ token });
+            }
+        });
+        res.sendStatus(201).cookie('token', token).status(201).json({ token })
     }).catch(e => {
         console.log(e)
         res.sendStatus(500)

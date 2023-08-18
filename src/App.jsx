@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Header />
-      <AuthModal />
+      <AuthModal show={true} />
       <BoardHeader />
       <NewPost />
 
