@@ -5,14 +5,15 @@ import BoardHeader from './components/BoardHeader'
 import Avatar from './images/Avatar.png'
 import NewPost from './components/NewPost'
 import AuthModal from './components/AuthModal'
+import AuthModalContext from './components/AuthModalContext'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
+    <AuthModalContext.Provider value={{ show:true }}>
       <Header />
-      <AuthModal show={true} />
+      <AuthModal />
       <BoardHeader />
       <NewPost />
 
@@ -31,7 +32,7 @@ function App() {
           </p>
         </div>
       </div>
-    </>
+    </AuthModalContext.Provider>
   )
 }
 

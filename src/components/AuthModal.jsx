@@ -1,15 +1,18 @@
-import { React, useState } from 'react'
+import { React, useState, useContext } from 'react'
 import Input from './Input'
 import Button from './Button'
 import axios from 'axios'
+import AuthModalContext from './AuthModalContext'
 
-const AuthModal = (props) => {
+const AuthModal = () => {
   const [modalType, setModalType] = useState("login")
   const [email, setEmail ] = useState("")
   const [username, setUsername ] = useState("")
   const [password, setPassword ] = useState("")
 
-  const visibilityClass = props.show ? "block" : "hidden"
+  const modalContext = useContext(AuthModalContext)
+
+  const visibilityClass = modalContext.show ? "block" : "hidden"
 
   function register(e){
     e.preventDefault()
