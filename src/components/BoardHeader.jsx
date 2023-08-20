@@ -9,7 +9,7 @@ const BoardHeader = () => {
         <div className="bg-reddit_dark-brighter">
         <div className="mx-6 relative flex">
             <div className="h-20 w-20 overflow-hidden relative -top-3">
-            <img src="public/Frog2.png" alt="" className="rounded-full" />
+            <img src="/Frog2.png" alt="" className="rounded-full" />
             </div>
             <div className="pt-2 pl-4">
             <h1 className="text-gray-300 text-3xl">
