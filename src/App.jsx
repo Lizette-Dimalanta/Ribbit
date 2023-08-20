@@ -18,7 +18,7 @@ function App() {
       <NewPost />
 
       <div className="bg-reddit_dark h-screen">
-        <div className="bg-reddit_dark px-6 text-reddit_text pb-3">
+        <div className="bg-reddit_dark px-6 text-reddit_text pb-2">
           <div className="border border-reddit_border bg-reddit_dark-brighter p-2 rounded-md">
             <h5 className="text-reddit_text-darker text-xs">
               Posted by u/brainhurricane 5 hours ago
@@ -47,7 +47,7 @@ function App() {
               What is your preference: javascript or typescript, and why?
             </p>
         </div>
-        <div className="bg-reddit_dark text-reddit_text pt-3">
+        <div className="bg-reddit_dark text-reddit_text pt-2">
           <div className="border border-reddit_border bg-reddit_dark-brighter p-2 rounded-md">
             <h5 className="text-reddit_text-darker text-xs">
               Posted by u/night_tempo 1 day ago
@@ -60,7 +60,7 @@ function App() {
             </p>
           </div>
         </div>
-        <div className="bg-reddit_dark text-reddit_text pb-10 pt-3">
+        <div className="bg-reddit_dark text-reddit_text pb-10 pt-2">
           <div className="border border-reddit_border bg-reddit_dark-brighter p-2 rounded-md">
             <h5 className="text-reddit_text-darker text-xs">
               Posted by u/SeatedWoodpile 1 day ago
