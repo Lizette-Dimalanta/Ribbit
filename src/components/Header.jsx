@@ -11,15 +11,15 @@ const Header = () => {
   const [userDropdownVisibilityClass, setuserDropdownVisibilityClass] = useState("hidden") // In hidden initial state
   // Handles clicks outside user dropdown to close
   function useUserDropdown(ref) {
-    useEffect(() => {
-        function handleClickOutside(event) {
+    useEffect(() => { // Hook: Triggered when component mounts or when 'ref' dependency changes
+        function handleClickOutside(event) { // Hide dropdown when user clicks outside
             if(ref.current && !ref.current.contains(event.target)) {
                 setuserDropdownVisibilityClass("hidden");
             }
         }
-        document.addEventListener("mousedown", handleClickOutside);
+        document.addEventListener("mousedown", handleClickOutside); // Listen for mousedown events
         return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
+            document.removeEventListener("mousedown", handleClickOutside); // Remove event listener when component is unmounted/'ref' dependency changes
         };
     }, [ref]);
   }
