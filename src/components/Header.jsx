@@ -1,5 +1,5 @@
 import { React, useState, useEffect, useRef } from 'react'
-import Logo from '../images/reddit-logo.png'
+import Logo from '../images/Frog.webp'
 import { BsSearch, BsChatDots, BsBell, BsChevronDown } from 'react-icons/bs'
 import { AiOutlinePlus } from "react-icons/ai"
 import Avatar from '../images/Avatar.png'

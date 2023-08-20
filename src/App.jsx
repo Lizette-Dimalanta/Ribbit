@@ -11,7 +11,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <AuthModalContext.Provider value={{ show:true }}>
+    <AuthModalContext.Provider value={{ show:false }}>
       <Header />
       <AuthModal />
       <BoardHeader />
