@@ -4,20 +4,24 @@ import Button from './Button'
 import axios from 'axios'
 import AuthModalContext from './AuthModalContext'
 
+// Login / Register Pages
 const AuthModal = () => {
-  const [modalType, setModalType] = useState("login")
+  const [modalType, setModalType] = useState("login") // Default: Login state
   const [email, setEmail ] = useState("")
   const [username, setUsername ] = useState("")
   const [password, setPassword ] = useState("")
 
+  // Access current context value of modal visibility
   const modalContext = useContext(AuthModalContext)
 
+  // Use context value of modalContext to determine showing/hiding Login/Register page
   const visibilityClass = modalContext.show ? "block" : "hidden"
 
+  // Register User
   function register(e){
-    e.preventDefault()
-    const data = {email, username, password}
-    axios.post("http://localhost:4000/register", data, { withCredentials: true })
+    e.preventDefault() // Prevent default behaviour of form submission (submit manually)
+    const data = {email, username, password} // Create 'data' object with user information
+    axios.post("http://localhost:4000/register", data, { withCredentials: true }) // Send POST request with data and cookies
       .then(response => {
         console.log("successful")
       }).catch(error => {
