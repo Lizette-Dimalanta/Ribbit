@@ -8,10 +8,10 @@ import AuthModal from './components/AuthModal'
 import AuthModalContext from './components/AuthModalContext'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showAuthModal, setShowAuthModal] = useState(false)
 
   return (
-    <AuthModalContext.Provider value={{ show:false }}>
+    <AuthModalContext.Provider value={{ show:showAuthModal, setShow:setShowAuthModal }}>
       <Header />
       <AuthModal />
       <BoardHeader />
